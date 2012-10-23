@@ -2,7 +2,7 @@
 	<Name>[A4 - Inferno] AzureusPT - Infernal Machine Plan</Name>
 	<KillMonsters>True</KillMonsters>
 	<PickupLoot>True</PickupLoot>
-	<GameParams quest="114901" step="22" act="A4" difficulty="Hell" resumeFromSave="False" isPrivate="True" numGames="-1"  />
+	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
 	<Order>
 		<!-- Set death handling -->
 		<TrinityMaxDeaths questId="1" max="5" />
