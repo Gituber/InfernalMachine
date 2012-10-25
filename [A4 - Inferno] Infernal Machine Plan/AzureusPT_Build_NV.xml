@@ -3,11 +3,6 @@
 	<KillMonsters>True</KillMonsters>
 	<PickupLoot>True</PickupLoot>
 	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
-	<!-- Blacklist -->
-		<TargetBlacklists>
-			<TargetBlacklist actorId="223333" name="Hell Fissure" />
-			<TargetBlacklist actorId="220636" name="Bridge Spikes" />
-		</TargetBlacklists>
 	<Order>
 		<!-- Set keyrun profile -->
 		<Keyrun profile="AzureusPT_Infernal_Machine_Plan.xml" />
@@ -86,7 +81,7 @@
 		</TrinityUseOnce>
 		<!-- Farm Gardens of Hope 2nd Tier -->
 		<TrinityUseOnce id="4444" max="5" disableprevious="true">
-			<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+			<ExploreArea questId="1" boxTolerance="0.40" boxSize="15" until="FullyExplored" />
 		</TrinityUseOnce>
 		<While questId="1" condition="(not Me.IsInTown)"> 
 			<UseTownPortal questId="1" />
@@ -101,7 +96,7 @@
 			<TrinityInteract questId="1" snoid="210758" />
 			<WaitTimer questId="1" waitTime="2000" />
 		</While>
-		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+		<ExploreArea questId="1" boxTolerance="0.40" boxSize="15" until="FullyExplored" />
 		<While questId="1" condition="(not Me.IsInTown)"> 
 			<UseTownPortal questId="1" />
 			<WaitTimer questId="1" waitTime="1000" />

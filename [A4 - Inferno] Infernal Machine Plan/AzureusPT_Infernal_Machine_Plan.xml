@@ -3,14 +3,7 @@
 	<KillMonsters>True</KillMonsters>
 	<PickupLoot>True</PickupLoot>
 	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
-	<!-- Blacklist -->
-		<TargetBlacklists>
-			<TargetBlacklist actorId="196899" name="Magda's Ghost" />
-			<TargetBlacklist actorId="196900" name="Kule's Ghost" />
-			<TargetBlacklist actorId="196903" name="Mira's Ghost" />
-			<TargetBlacklist actorId="223333" name="Hell Fissure" />
-			<TargetBlacklist actorId="220636" name="Bridge Spikes" />
-		</TargetBlacklists>
+	<!-- Blacklist the following in Trinity: 196899,196900,196903,223333,220636 -->
 	<Order>
 		<!-- Set death handling -->
 		<TrinityMaxDeaths questId="1" max="5" />
@@ -40,13 +33,7 @@
 			</While>
 		</TrinityUseOnce>
 		<!-- Explore area until you find the keywarden SNO 256034-->
-		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="ObjectFound" actorId="256034" />
-		<TrinityLog questId="1" output="Nekarat the Keywarden found!" />
-		<!-- Kill the keywarden -->
-		<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="70" />
-		<While questId="1" condition="ActorExistsAt(256034,ZetaDia.Me.Position.X,ZetaDia.Me.Position.Y,ZetaDia.Me.Position.Z,70)">
-			<WaitTimer questId="1" waitTime="5000" />
-		</While>
+		<ExploreArea questId="1" boxTolerance="0.40" boxSize="15" until="FullyExplored" />
 		<!-- Teleport back -->
 		<While questId="1" condition="(not Me.IsInTown)"> 
 			<UseTownPortal questId="1" />
