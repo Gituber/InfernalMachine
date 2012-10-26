@@ -3,14 +3,13 @@
 	<KillMonsters>True</KillMonsters>
 	<PickupLoot>True</PickupLoot>
 	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
-	<!-- Blacklist the following in Trinity: 196899,196900,196903,223333,220636 -->
+	<!-- Blacklist the following in Trinity: 196899,196900,196903,223333,220636,218951 -->
 	<Order>
-		<!-- Set death handling -->
-		<TrinityMaxDeaths questId="1" max="5" />
 		<!-- Set combat handling -->
 		<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="40" />
-		<!-- Teleport back to town if you're not there -->
-		<TrinityUseOnce questId="1" id="1010">
+		<!-- Check if we're already there -->
+		<If condition="(not Zeta.ZetaDia.CurrentWorldId==121579)">
+			<!-- Teleport back to town if you're not there -->
 			<While questId="1" condition="(not Me.IsInTown)"> 
 				<UseTownPortal questId="1" />
 				<WaitTimer questId="1" waitTime="1000" />
@@ -18,7 +17,7 @@
 			<!-- Use waypoint to teleport to area -->
 			<UseWaypoint questId="1" actorId="6442" x="401.7315" y="413.5764" z="1.533799" waypointNumber="5" />
 			<WaitTimer questId="1" waitTime="2000" />
-			<!-- Move to dungeon -->
+			<!-- Move to Silver Spire 1 -->
 			<TrinityMoveTo questId="1" x="367.7053" y="373.3841" z="0.09999999" pathPrecision="4" />
 			<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==103910">
 				<UseObject questId="1" x="365.0216" y="367.9342" z="0.5751886" actorId="176001" isPortal="True" destinationWorldId="198281" />
@@ -28,19 +27,23 @@
 			<TrinityMoveTo questId="1" x="472.4604" y="472.4791" z="0.1000001" pathPrecision="4" />
 			<TrinityMoveTo questId="1" x="400.8493" y="399.6605" z="-1.206677" pathPrecision="4" />
 			<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==198281">
-				<TrinityInteract questId="1" snoid="210758" />
+				<UseObject questId="1" x="392.5141" y="392.3732" z="1.212753" interactRange="15" actorId="210758" isPortal="True" destinationWorldId="121579" />
 				<WaitTimer questId="1" waitTime="2000" />
 			</While>
-		</TrinityUseOnce>
-		<!-- Explore area until you find the keywarden SNO 256034-->
-		<ExploreArea questId="1" boxTolerance="0.40" boxSize="15" until="FullyExplored" />
-		<!-- Teleport back -->
-		<While questId="1" condition="(not Me.IsInTown)"> 
-			<UseTownPortal questId="1" />
+		</If>
+		<!-- Farm Silver Spire 1 -->
+		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+		<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==214956">
+			<TrinityInteract questId="1" snoid="210758" />
 			<WaitTimer questId="1" waitTime="2000" />
 		</While>
 		<TrinityLog questId="1" output="Act 4 - Infernal Machine done!" />
+		<!-- Teleport back to town -->
+		<While questId="1" condition="(not Me.IsInTown)"> 
+			<UseTownPortal questId="1" />
+			<WaitTimer questId="1" waitTime="1000" />
+		</While>
 		<!-- Restart game -->
-		<Continue profile="AzureusPT_Build_NV.xml" exitgame="true" />
+		<Continue profile="AzureusPT_START_HERE.xml" exitgame="true" />
 	</Order>
 </Profile>

@@ -1,0 +1,84 @@
+<Profile>
+	<Name>[A4 - Inferno] AzureusPT - Build NV Stack #1</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>True</PickupLoot>
+	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
+	<Order>
+		<!-- Set keyrun profile -->
+		<Keyrun profile="AzureusPT_Infernal_Machine_Plan.xml" />
+		<!-- Set combat handling -->
+		<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="40" />
+		<!-- Gardens of Hope 1st Tier -->
+		<If condition="(not Zeta.ZetaDia.CurrentWorldId==109513)">
+			<!-- Teleport back to town if you're not there -->
+			<While questId="1" condition="(not Me.IsInTown)"> 
+				<UseTownPortal questId="1" />
+				<WaitTimer questId="1" waitTime="1000" />
+			</While>
+			<!-- Goto Gardens of Hope 1st Tier -->
+			<UseWaypoint questId="1" actorId="6442" x="401.7315" y="413.5764" z="1.533799" waypointNumber="2" />
+			<WaitTimer questId="1" waitTime="2000" />
+			<TrinityMoveTo questId="1" x="356.3716" y="273.264" z="3.155689" pathPrecision="4" />
+			<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==109143">
+				<UseObject questId="1" x="356.8819" y="272.2798" z="6.73857" actorId="176002" isPortal="True" destinationWorldId="109513" />
+				<WaitTimer questId="1" waitTime="2000" />
+			</While>	
+		</If>
+		<!-- Farm Gardens of Hope 1st Tier -->
+		<TrinityMoveTo questId="1" x="874.9681" y="1113.444" z="-14.9" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="898.5441" y="1039.564" z="-14.9" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="800.3965" y="944.024" z="-14.9" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="753.28" y="937.5307" z="-14.9" />
+		<TrinityMoveTo questId="1" x="730.5119" y="913.829" z="0.2661476" />
+		<TrinityMoveTo questId="1" x="735.3255" y="885.7856" z="0.1" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="782.4032" y="831.7949" z="0.09999999" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="810.2329" y="825.1203" z="0.1" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="853.3905" y="756.4494" z="0.1" pathPrecision="4" />
+		<TrinityUseOnce questId="1" id="1111" max="10">
+			<TrinityMoveTo questId="1" x="853.3905" y="756.4494" z="0.1" />
+			<TrinityMoveTo questId="1" x="957.0944" y="467.7198" z="0.1000019" />
+			<TrinityMoveTo questId="1" x="1009.59" y="460.7422" z="0.1000019" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="1017.18" y="433.5672" z="0.1000118" />
+			<TrinityMoveTo questId="1" x="1023.058" y="397.0006" z="15.1" />
+			<TrinityMoveTo questId="1" x="1061.718" y="350.6876" z="15.2" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="899.756" y="321.2666" z="15.2" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="915.7853" y="379.559" z="15.1" />
+			<TrinityMoveTo questId="1" x="908.1352" y="415.4312" z="0.100008" />
+			<TrinityMoveTo questId="1" x="919.544" y="447.8252" z="0.1000002" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="957.0944" y="467.7198" z="0.1000019" />
+			<TrinityMoveTo questId="1" x="853.3905" y="756.4494" z="0.1" />
+		</TrinityUseOnce>
+		<TrinityMoveTo questId="1" x="782.7971" y="753.8656" z="0.1" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="717.2357" y="715.3016" z="0.100001" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="608.9327" y="848.6522" z="0.1000004" pathPrecision="4" />
+		<TrinityUseOnce questId="1" id="2222" max="10" disableprevious="true">
+			<TrinityMoveTo questId="1" x="579.4883" y="819.5315" z="0.6262674" />
+			<TrinityMoveTo questId="1" x="557.066" y="796.9221" z="15.42546" />
+			<TrinityMoveTo questId="1" x="522.2914" y="762.9583" z="15.3" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="557.066" y="796.9221" z="15.42546" />
+			<TrinityMoveTo questId="1" x="579.4883" y="819.5315" z="0.6262674" />
+			<TrinityMoveTo questId="1" x="608.9327" y="848.6522" z="0.1000004" pathPrecision="4" />
+		</TrinityUseOnce>
+		<TrinityMoveTo questId="1" x="681.7885" y="922.5152" z="0.2999998" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="587.137" y="1025.763" z="0.1" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="432.5802" y="1122.321" z="0.1000009" />
+		<TrinityMoveTo questId="1" x="397.4792" y="1136.165" z="15.1" />
+		<TrinityUseOnce questId="1" id="3333" max="10" disableprevious="true">
+			<TrinityMoveTo questId="1" x="305.5563" y="1178.219" z="15.1" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="336.2057" y="1260.967" z="15.61964" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="350.6342" y="1295.267" z="0.1" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="336.2057" y="1260.967" z="15.61964" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="305.5563" y="1178.219" z="15.1" pathPrecision="4" />
+		</TrinityUseOnce>
+		<TrinityMoveTo questId="1" x="371.4763" y="1143.325" z="15.1" pathPrecision="4" />
+		<TrinityMoveTo questId="1" x="374.3121" y="1070.009" z="15.4114" />
+		<TrinityMoveTo questId="1" x="360.183" y="1040.126" z="0.1262458" />
+		<TrinityMoveTo questId="1" x="351.4311" y="1015.624" z="3.06922" pathPrecision="4" />
+		<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==109513">
+			<UseObject questId="1" x="351.4041" y="1016.756" z="7.22296" actorId="204901" isPortal="True" destinationWorldId="219659" />
+			<WaitTimer questId="1" waitTime="2000" />
+		</While>
+		<!-- Load Gardens of Hope 2nd Tier -->
+		<Continue profile="AzureusPT_Build_NV2.xml" />
+	</Order>
+</Profile>

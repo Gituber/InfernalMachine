@@ -1,0 +1,39 @@
+<Profile>
+	<Name>[A4 - Inferno] AzureusPT - Build NV Stack #2</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>True</PickupLoot>
+	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
+	<Order>
+		<!-- Set keyrun profile -->
+		<Keyrun profile="AzureusPT_Infernal_Machine_Plan.xml" />
+		<!-- Set combat handling -->
+		<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="40" />
+		<!-- Gardens of Hope 2nd Tier -->
+		<!-- Goto Gardens of Hope 2 if not there -->
+		<If condition="(not Zeta.ZetaDia.CurrentWorldId==219659)">
+			<While questId="1" condition="(not Me.IsInTown)"> 
+				<UseTownPortal questId="1" />
+				<WaitTimer questId="1" waitTime="1000" />
+			</While>
+			<UseWaypoint questId="1" actorId="6442" x="401.7315" y="413.5764" z="1.533799" waypointNumber="5" />
+			<WaitTimer questId="1" waitTime="2000" />
+			<!-- Move to entrace -->
+			<TrinityMoveTo questId="1" x="450.0269" y="448.6113" z="0.6196326" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="481.0291" y="480.7625" z="-14.9" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="538.3954" y="539.1128" z="-14.9" pathPrecision="4" />
+			<TrinityMoveTo questId="1" x="588.8416" y="588.684" z="-12.15078" pathPrecision="4" />
+			<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==103910">
+				<UseObject questId="1" x="591.4336" y="591.3848" z="-7.839636" actorId="204901" isPortal="True" destinationWorldId="219659" />
+				<WaitTimer questId="1" waitTime="2000" />
+			</While>
+		</If>
+		<!-- Farm Gardens of Hope 2nd Tier -->
+		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+		<While questId="1" condition="(not Me.IsInTown)"> 
+			<UseTownPortal questId="1" />
+			<WaitTimer questId="1" waitTime="1000" />
+		</While>
+		<!-- Load Silver Spire 2 -->
+		<Continue profile="AzureusPT_Build_NV3.xml" />
+	</Order>
+</Profile>
