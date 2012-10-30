@@ -32,7 +32,15 @@
 			</While>
 		</If>
 		<!-- Farm Silver Spire 1 -->
-		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="ObjectFound" actorId="256034" objectDistance="50" />
+		<If condition="ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 60)">
+			<TrinityLog questId="1" output="Nekarat the Keywarden found!" />
+			<While condition="ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 60)">
+				<TrinityMoveToSNO questId="1" snoid="256034" pathPrecision="5" />
+				<WaitTimer questId="1" waitTime="2000" />
+			</While>
+		</If>
+		<WaitTimer questId="1" waitTime="2000" />
 		<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==214956">
 			<TrinityInteract questId="1" snoid="210758" />
 			<WaitTimer questId="1" waitTime="2000" />
