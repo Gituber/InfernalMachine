@@ -1,38 +1,39 @@
-<Profile>
-	<Name>[A4 - Inferno] AzureusPT - Build NV Stack #3</Name>
-	<KillMonsters>True</KillMonsters>
-	<PickupLoot>True</PickupLoot>
-	<GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
-	<Order>
-		<!-- Set keyrun profile -->
-		<Keyrun profile="AzureusPT_Infernal_Machine_Plan.xml" />
-		<!-- Set combat handling -->
-		<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="40" />
-		<!-- Silver Spire 2 -->
-		<!-- Check if we're already there -->
-		<If condition="(not Zeta.ZetaDia.CurrentWorldId==129305)">
-			<!-- Teleport back to town if you're not there -->
-			<While questId="1" condition="(not Me.IsInTown)"> 
-				<UseTownPortal questId="1" />
-				<WaitTimer questId="1" waitTime="1000" />
-			</While>
-			<!-- Go to Silver Spire 2 -->
-			<UseWaypoint questId="1" actorId="6442" x="401.7315" y="413.5764" z="1.533799" waypointNumber="6" />
-			<WaitTimer questId="1" waitTime="2000" />
-			<TrinityMoveTo questId="1" x="105.3752" y="584.684" z="0.1" pathPrecision="4" />
-			<TrinityMoveTo questId="1" x="72.45074" y="584.5514" z="0.1" pathPrecision="4" />
-			<While questId="1" condition="Zeta.ZetaDia.CurrentWorldId==214956">
-				<UseObject questId="1" x="61.38658" y="584.9642" z="0.6316261" interactRange="15" actorId="210758" isPortal="True" destinationWorldId="129305" />
-				<WaitTimer questId="1" waitTime="2000" />
-			</While>
-		</If>
-		<!-- Farm Spire Tier 2 -->
-		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
-		<While questId="1" condition="(not Me.IsInTown)"> 
-			<UseTownPortal questId="1" />
-			<WaitTimer questId="1" waitTime="1000" />
-		</While>
-		<!-- Go farm the Plan -->
-		<Continue profile="AzureusPT_Infernal_Machine_Plan.xml" />
-	</Order>
+<Profile xmlns="http://tempuri.org/ProfileSchema.xsd" xmlns:xsi="http://tempuri.org/ProfileSchema.xsd">
+  <Name>[A4 - Inferno] AzureusPT - Build NV Stack #3</Name>
+  <GameParams quest="114901" step="22" act="A4" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
+  <KillMonsters>True</KillMonsters>
+  <PickupLoot>True</PickupLoot>
+  <Order>
+    <!-- Set keyrun profile -->
+    <Keyrun profile="AzureusPT_Infernal_Machine_Plan.xml" />
+    <!-- Set combat handling -->
+    <ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="40" />
+    <!-- Silver Spire 2 -->
+    <!-- Check if we're already there -->
+    <If condition="(not Zeta.ZetaDia.CurrentWorldId==129305)">
+      <!-- Teleport back to town if you're not there -->
+      <While condition="(not Me.IsInTown)">
+        <UseTownPortal questId="1" />
+        <WaitTimer questId="1" waitTime="1000" />
+      </While>
+      <!-- Go to Silver Spire 2 -->
+      <MoveTo questId="1" x="401.7315" y="413.5764" z="1.533799"/>
+      <UseWaypoint questId="1" actorId="6442" x="401.7315" y="413.5764" z="1.533799" waypointNumber="6" />
+      <WaitTimer questId="1" waitTime="1000" />
+      <MoveTo questId="1" x="105.3752" y="584.684" z="0.1" pathPrecision="4" />
+      <MoveTo questId="1" x="72.45074" y="584.5514" z="0.1" pathPrecision="4" />
+      <While condition="Zeta.ZetaDia.CurrentWorldId==214956">
+        <UseObject questId="1" x="61.38658" y="584.9642" z="0.6316261" interactRange="15" actorId="210758" isPortal="True" destinationWorldId="129305" />
+        <WaitTimer questId="1" waitTime="1000" />
+      </While>
+    </If>
+    <!-- Farm Spire Tier 2 -->
+    <ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+    <While condition="(not Me.IsInTown)">
+      <UseTownPortal questId="1" />
+      <WaitTimer questId="1" waitTime="1000" />
+    </While>
+    <!-- Go farm the Plan -->
+    <LoadProfile profile="AzureusPT_Infernal_Machine_Plan.xml" />
+  </Order>
 </Profile>
