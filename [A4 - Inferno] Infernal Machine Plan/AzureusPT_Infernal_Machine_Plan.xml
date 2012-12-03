@@ -49,6 +49,6 @@
     </While>
     <LogMessage logLevel="Normal" message="Run done!"/>
     <!-- Restart game -->
-    <LoadProfile profile="AzureusPT_START_HERE.xml" leaveGame="True" />
+    <Continue profile="AzureusPT_START_HERE.xml" exitgame="True"/>
   </Order>
 </Profile>

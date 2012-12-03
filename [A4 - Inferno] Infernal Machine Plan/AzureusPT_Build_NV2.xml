@@ -35,6 +35,6 @@
       <WaitTimer questId="1" waitTime="1000" />
     </While>
     <!-- Load Silver Spire 2 -->
-    <LoadProfile profile="AzureusPT_Build_NV3.xml" />
+    <Continue profile="AzureusPT_Build_NV3.xml" />
   </Order>
 </Profile>

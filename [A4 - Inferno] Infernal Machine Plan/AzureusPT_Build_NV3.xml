@@ -34,6 +34,6 @@
       <WaitTimer questId="1" waitTime="1000" />
     </While>
     <!-- Go farm the Plan -->
-    <LoadProfile profile="AzureusPT_Infernal_Machine_Plan.xml" />
+    <Continue profile="AzureusPT_Infernal_Machine_Plan.xml" />
   </Order>
 </Profile>

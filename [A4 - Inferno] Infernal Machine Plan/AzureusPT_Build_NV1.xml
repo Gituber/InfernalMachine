@@ -80,6 +80,6 @@
       <WaitTimer questId="1" waitTime="1000" />
     </While>
     <!-- Load Gardens of Hope 2nd Tier -->
-    <LoadProfile profile="AzureusPT_Build_NV2.xml" />
+    <Continue profile="AzureusPT_Build_NV2.xml" />
   </Order>
 </Profile>
