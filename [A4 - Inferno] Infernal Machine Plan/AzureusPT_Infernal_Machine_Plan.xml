@@ -5,6 +5,10 @@
   <PickupLoot>True</PickupLoot>
   <!-- Blacklist the following in Trinity: 196899,196900,196903,223333,220636,218951 -->
   <Order>
+    <!-- Check NV stack -->
+    <If condition="NephalemValorCount() &lt; 5">
+      <LoadProfile profile="AzureusPT_START_HERE.xml"/>
+    </If>
     <!-- Set combat handling -->
     <ToggleTargeting questId="1" combat="True" looting="True" lootRadius="70" killRadius="40" />
     <!-- Check if we're already there -->
@@ -33,15 +37,18 @@
       </While>
     </If>
     <!-- Farm Silver Spire 1 -->
-    <ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="ObjectFound" actorId="256034" objectDistance="50" />
-    <If condition="ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 60)">
-      <LogMessage logLevel="Normal" message="Keywarden found!"/>
-      <While condition="ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 60)">
+	<While condition="not ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 100)">
+		<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" />
+	</While>
+	<!-- Keywarden found -->	
+    <If condition="ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 100)">
+      <LogMessage message="Keywarden found!"/>
+      <While condition="ActorExistsAt(256034, ZetaDia.Me.Position.X, ZetaDia.Me.Position.Y, ZetaDia.Me.Position.Z, 150)">
         <MoveTo questId="1" actorId="256034" pathPrecision="5" />
         <WaitTimer questId="1" waitTime="1000" />
       </While>
+	  <LogMessage message="Keywarden killed!"/>
     </If>
-    <WaitTimer questId="1" waitTime="1000" />
     <!-- Teleport back to town -->
     <While condition="(not Me.IsInTown)">
       <UseTownPortal questId="1" />
@@ -49,6 +56,6 @@
     </While>
     <LogMessage logLevel="Normal" message="Run done!"/>
     <!-- Restart game -->
-    <Continue profile="AzureusPT_START_HERE.xml" exitgame="True"/>
+    <LoadProfile profile="AzureusPT_START_HERE.xml" leaveGame="True"/>
   </Order>
 </Profile>

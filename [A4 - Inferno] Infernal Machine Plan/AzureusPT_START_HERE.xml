@@ -10,6 +10,6 @@
       <WaitTimer questId="1" waitTime="1000" />
     </While>
     <!-- Go build NV -->
-    <Continue profile="AzureusPT_Build_NV1.xml" backup="AzureusPT_START_HERE.xml"/>
+    <LoadProfile profile="AzureusPT_Build_NV1.xml"/>
   </Order>
 </Profile>
